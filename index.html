@@ -1,0 +1,142 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./index.css">
+        <link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<div id="wrapper">
+		    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+		    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		        			<span class="sr-only">Toggle navigation</span>
+		        			<span class="icon-bar"></span>
+		        			<span class="icon-bar"></span>
+		        			<span class="icon-bar"></span>
+		    			</button>
+		                <div  class="navbar-brand">
+		                    <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+		                        <i class="fa fa-bars"></i>
+		                    </a>
+		    				<a href="#">HR Analysis</a>
+		                </div>
+					</div>
+					<div id="navbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="practice.html">More Insights</a></li>
+                            <li><a href="about.html">About Us</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		    <!-- Sidebar -->
+		    <div id="sidebar-wrapper">
+		        <nav id="spy">
+		            <ul class="sidebar-nav nav">
+		                <li class="sidebar-brand">
+		                   	<div style="margin-top:30px;" class="form-group">
+                                <h4>Map Type</h4>
+		                   	  	<select class="form-control" id="select_map" onchange = "colorMap('a')">
+		                   	    	<option>Google Maps</option>
+		                   	        <option>D3 Maps</option>
+		                   	    </select>
+                                <h4>Time Frame</h4>
+                                <select class="form-control" id="select_time" onchange = "colorMap('a')">
+                                    <option>None</option>
+                                    <option>6AM TO 9AM</option>
+                                    <option>3PM TO 6PM</option>
+                                    <option>6PM TO 9PM</option>
+                                    <option>12PM TO 3PM</option>
+                                    <option>9AM TO 12PM</option>
+                                    <option>0AM TO 3AM</option>
+                                    <option>9PM TO 12AM</option>
+                                    <option>3AM TO 6AM</option>
+                                </select>
+                                <h4>Light Condition</h4>
+                                <select class="form-control" id="select_light" onchange = "colorMap('a')">
+                                    <option>None</option>
+                                    <option>1. Dawn</option>
+                                    <option>2. Daylight</option>
+                                    <option>3. Dusk</option>
+                                    <option>4. Darkness - Road Lighted</option>
+                                    <option>5. Darkness - Road Not Lighted</option>
+                                    <option>6. Darkness - Unknown Road Lighting</option>
+                                    <option>7. Unknown</option>
+                                </select>
+                                <h4>Weather Condition</h4>
+                                <select class="form-control" id="select_weather" onchange = "colorMap('a')">
+                                    <option>None</option>
+                                    <option>1. No Adverse Condition (Clear/Cloudy)</option>
+                                    <option>3. Fog</option>
+                                    <option>4. Mist</option>
+                                    <option>5. Rain</option>
+                                    <option>6. Snow</option>
+                                    <option>9. Other</option>
+                                    <option>11. Severe Crosswinds</option>
+                                </select>
+                                <br>
+                                <input type="radio" name="yeartype" id="allyears" onclick="colorMap('a')"> All Years <br><input type="radio" name="yeartype" id="oneyear" onclick="colorMap('o')" id="oneyear" checked> One Year
+                                <br><br>
+                                <input type="radio" name="alctype" id="alcohol" onclick="colorMap('al')"> Alcohol <br><input type="radio" name="alctype" id="notalcohol" onclick="colorMap('nonal')" id="oneyear"> Non Alcohol<br><input type="radio" name="alctype" id="bothalcohol" onclick="colorMap('both')" id="oneyear" checked>Both
+		                   	</div>
+		                </li>
+		            </ul>
+		        </nav>
+		    </div>
+		    <!-- Page content -->
+		    <div id="page-content-wrapper">
+		        <div class="page-content">
+		            <div class="container-fluid">
+    	                <div class="row">
+    	                	<div class="col-md-6">
+    	                		<div class="no_display" id="map"></div>
+    	                		<div id="google_map"></div>
+    						    <div style="width:550px;" id="slider6"></div>
+    						    <div id="year" style="display:none">2016</div>
+    	                	</div>
+    	                	<div id="spline" class="col-md-6">
+    	                	</div>
+    	                </div>
+		                <div class="row" style="margin-top:100px;">
+		                    <div id="drilldown" class="col-md-6">
+		                    </div>
+		                    <div id="pie_chart" class="col-md-6">
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="./neighborhoods.js"></script>
+    <script src="./d3.slider.js"></script>
+    <script type="text/javascript" src="./index_highcharts.js"></script>
+    <script type="text/javascript" src="./index_d3.js"></script>
+    <script>
+      function initMap(locations) {
+        var map = new google.maps.Map(document.getElementById('google_map'), {
+	        zoom: 10,
+	        center: new google.maps.LatLng(locations[0][0], locations[0][1]),
+        });
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {  
+              marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+                map: map
+            });
+       	}
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-1aWtDfzezlAq8y8RIMpUkiCJ4qaVbe8"></script>
+</html>
